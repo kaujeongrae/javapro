@@ -17,16 +17,17 @@ public class MainActivity extends AppCompatActivity {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
 
+        //은행 초기 설정
+        Bank a=new Bank(10000000);
         System.out.println("은행에 입금할 금액은?");
-        double bankmoney=sc.nextDouble();
-        System.out.println("month?");
-        int month=sc.nextInt();
-        System.out.println("물품의 종류는?");
-        String name=sc.nextLine();
-        System.out.println("물품의 가격은?");
-        int price=sc.nextInt();
+        double b=sc.nextDouble();
+        a.summoney(b);
+        a.showmoney();
 
-
+        //가계부 초기 설정
+        String gh=sc.nextLine();
+        double p=sc.nextDouble();
+        Diary k=new Diary(gh,p);
 
 
 
