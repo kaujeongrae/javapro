@@ -5,18 +5,17 @@ package koreaaerospace.javapro;
  */
 
 public class Diary {
-    private String name;
     private double price;
 
-
-
-    public Diary( String name, double price){
-
-        this.name=name;
-        this.price=price;
-
+    public Diary(){
+        price=0;
     }
 
+    public void addcost(double money){
+        price=price+money;
+    }
 
-
+    public double getcost(){
+        return price;
+    }
 }

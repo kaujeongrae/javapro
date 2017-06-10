@@ -4,22 +4,25 @@ package koreaaerospace.javapro;
  * Created by jojeongrae on 2017-06-10.
  */
 
-public abstract class Bank {
+public class Bank {
 
-
-    private double money;
+    private double balance;
 
     public Bank(double money){
-
-        this.money=money;
+        balance=money;
     }
 
-    public void showmoney(){
-        System.out.println("현재의 잔고는 "+money+"입니다");
+    public double getbalance(){
+        return balance;
     }
 
-    public void summoney(double add) throws Exception{
-        money=money+add;
+    public void plus(double money){
+        balance=balance+money;
     }
+
+    public void debit(double money){
+        balance=balance-money;
+    }
+
 
 }

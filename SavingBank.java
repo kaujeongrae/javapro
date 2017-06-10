@@ -4,21 +4,26 @@ package koreaaerospace.javapro;
  * Created by jojeongrae on 2017-06-10.
  */
 
-public class SavingBank extends Bank {
+public class SavingBank {
     private double interest;
+    private int month;
+    private double money;
 
-    public SavingBank(double money, double interest){
-        super(money);
+    public SavingBank(double money, double interest,int month){
+        this.money=money;
         this.interest=interest;
+        this.month=month;
     }
 
-    @Override
-    public void showmoney(){
-        System.out.println("현재의 잔고는 "+Math.pow(money,1+interest)+"입니다");
+
+    public double getbalance(){
+        if (month>12){
+            return Math.pow(money,1+interest);
+        } else {
+            return getbalance();
+        }
     }
 
-    @Override
-    public void summoney(double add) throws Exception{
-        money=Math.pow(money,1+interest)+add;
-    }
+
+
 }

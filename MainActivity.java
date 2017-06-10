@@ -13,31 +13,66 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-
-        //은행 초기 설정
-        Bank a=new SavingBank(1000000,0.03);
+        //입출금예금
+        Bank account = new Bank(100000);
         System.out.println("은행에 입금할 금액은?");
-        double b=sc.nextDouble();
-        try {
-            a.summoney(b);
-            a.showmoney();
-        } catch (Exception e){
-            System.out.println("오류가 발생하였습니다.");
-        } finally {
-            System.out.println("이용해 주셔서 감사합니다.");
+        double money1 = sc.nextDouble();
+        account.plus(money1);
+        System.out.println("현재 잔고: " + account.getbalance());
+
+        System.out.println("은행에서 출금할 금액은?");
+        double money2 = sc.nextDouble();
+        account.debit(money2);
+        System.out.println("현재 잔고: " + account.getbalance());
+
+        //정기예금
+        System.out.println("은행에 예금할 개월 수는?");
+        int month = sc.nextInt();
+        SavingBank account2 = new SavingBank(100000, 0.03, month);
+        System.out.println(month + "개월 후 잔고: " + account2.getbalance());
+
+        //가계부 반복입력+물품별 사용금액 출력
+        System.out.println("숫자를 입력하세요. 1.식사 2.교통 3.학업 4.취미 5.기타 6.종료");
+        int num = sc.nextInt();
+
+        Diary food = new Diary();
+        Diary transport = new Diary();
+        Diary study = new Diary();
+        Diary hobby = new Diary();
+        Diary remainder = new Diary();
+        while(num!=6) {
+            if (num == 1) {
+                System.out.println("쓴 비용은?");
+                food.addcost(sc.nextDouble());
+            } else if (num == 2) {
+                System.out.println("쓴 비용은?");
+                transport.addcost(sc.nextDouble());
+            } else if (num == 3) {
+                System.out.println("쓴 비용은?");
+                study.addcost(sc.nextDouble());
+            } else if (num == 4) {
+                System.out.println("쓴 비용은?");
+                hobby.addcost(sc.nextDouble());
+            } else if (num == 5) {
+                System.out.println("쓴 비용은?");
+                remainder.addcost(sc.nextDouble());
+            } else {
+                System.out.println("수고하셨습니다.");
+                break;
+            }
+
+            System.out.println("숫자를 입력하세요. 1.식사 2.교통 3.학업 4.취미 5.기타 6.종료");
+            num = sc.nextInt();
         }
 
-
-        //가계부 초기 설정
-        String gh=sc.nextLine();
-        double p=sc.nextDouble();
-        Diary k=new Diary(gh,p);
-
-
-
-
+        System.out.println("품목별 지출내역입니다.");
+        System.out.println("식사: "+food.getcost());
+        System.out.println("교통: "+transport.getcost());
+        System.out.println("학업: "+study.getcost());
+        System.out.println("취미: "+hobby.getcost());
+        System.out.println("기타: "+remainder.getcost());
     }
 }
