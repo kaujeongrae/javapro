@@ -4,7 +4,7 @@ package koreaaerospace.javapro;
  * Created by jojeongrae on 2017-06-10.
  */
 
-public class Bank {
+public abstract class Bank {
 
 
     private double money;
@@ -18,7 +18,7 @@ public class Bank {
         System.out.println("현재의 잔고는 "+money+"입니다");
     }
 
-    public void summoney(double add){
+    public void summoney(double add) throws Exception{
         money=money+add;
     }
 
