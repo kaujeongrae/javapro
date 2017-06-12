@@ -1,16 +1,45 @@
 package koreaaerospace.javapro;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+
 import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void onClick(View view) {
+        // 버튼의 id를 가져온다.
+        switch (view.getId()){
+            case R.id.btn1:
+                //btn1을 눌렀을 떄의 처리
+                break;
+
+            case R.id.btn2:
+                //btn2을 눌렀을 때 처리
+                break;
+
+            case R.id.btn3:
+                //btn3을 눌렀을 때의 처리
+                break;
+        }
+    }
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -75,4 +104,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("취미: "+hobby.getcost());
         System.out.println("기타: "+remainder.getcost());
     }
+
+
 }
