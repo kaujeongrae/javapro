@@ -17,21 +17,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
     public void onClick(View view) {
         // 버튼의 id를 가져온다.
         switch (view.getId()){
-            case R.id.btn1:
-                //btn1을 눌렀을 떄의 처리
+            case R.id.btn1://정기예금
+                Intent intent1=new Intent(this,SubActivity.class);
+                //intent1.putExtra("value",10000);//두번째 인자를 숫자로. 그리고 입력방법은?
+                startActivity(intent1);
                 break;
 
-            case R.id.btn2:
+            case R.id.btn2://입출금예금
                 //btn2을 눌렀을 때 처리
+                Intent intent2=new Intent(this,ThirdActivity.class);
+                intent2.putExtra("value",10000);//두번째 인자를 숫자로. 그리고 입력방법은?
+                startActivity(intent2);
                 break;
 
-            case R.id.btn3:
+            case R.id.btn3://가계부
                 //btn3을 눌렀을 때의 처리
+                Intent intent3=new Intent(this,FourthActivity.class);
+                intent3.putExtra("value","name");//두번째 인자를 품목으로. 그리고 입력방법은?
+                intent3.putExtra("value",10000);//두번째 인자를 숫자로. 그리고 입력방법은?
+                startActivity(intent3);
                 break;
         }
     }
